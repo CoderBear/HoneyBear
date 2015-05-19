@@ -1,0 +1,30 @@
+{
+    "appID": "30b2424b76fb451a85c4fdd732cbefd9",
+    "dependencies": {
+        "devkit-core": "https://github.com/gameclosure/devkit-core#v2.4.0"
+    },
+    "shortName": "HoneyBear",
+    "studio": {
+        "domain": "salsabearstudios.com",
+        "name": "Salsa Bear Studios",
+        "stagingDomain": "staging.salsabearstudios.com"
+    },
+    "supportedOrientations": [
+        "portrait",
+        "landscape"
+    ],
+    "title": "HoneyBear",
+    "splash": {
+        "autoHide": false,
+        "universal": "resources/splash/portrait2048.png"
+    },
+    "android": {
+        "versionCode": 1,
+        "icons": {
+            "36": "resources/icons/android36.png",
+            "48": "resources/icons/android48.png",
+            "72": "resources/icons/android72.png",
+            "96": "resources/icons/android96.png"
+        }
+    }
+}
