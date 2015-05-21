@@ -3,7 +3,8 @@ import ui.View;
 import ui.ImageView;
 import ui.resource.Image as Image;
 
-var Chance = require('chance');
+import src.chance;
+//var Chance = require('chance');
 var chance = new Chance();
 
 // our images
