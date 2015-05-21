@@ -10,8 +10,7 @@
         "stagingDomain": "staging.salsabearstudios.com"
     },
     "supportedOrientations": [
-        "portrait",
-        "landscape"
+        "portrait"
     ],
     "title": "HoneyBear",
     "splash": {
@@ -26,5 +25,17 @@
             "72": "resources/icons/android72.png",
             "96": "resources/icons/android96.png"
         }
-    }
+    },
+    "ios": {
+    "appleID": "123456789",
+    "bundleID": "Honeybear",
+    "icons": {
+      "114": "resources/icons/ios114.png",
+      "144": "resources/icons/ios144.png",
+      "57": "resources/icons/ios57.png",
+      "72": "resources/icons/ios72.png",
+      "renderGloss": true
+    },
+    "version": "1.0.0"
+  }
 }

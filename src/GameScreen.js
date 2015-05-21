@@ -5,83 +5,75 @@ import ui.ImageView;
 import ui.TextView;
 
 import src.Match3Core as Core;
+import src.utils as Utils;
+var Chance = require('chance');
 
 //Some constants
 var CoreGame = new Core();
 var level = new Core();
+var chance = new Chance();
 /* The Game Screen code.
  * The child of the main application in 
  * the game.  Everything else is a child
  * of game so it is all visible.
  */
-this.init = function(opts) {
-    opts = merge(opts, {
-        x: 0,
-        y: 0,
-        width: 576,
-        height: 1024,
-        backgroundColor: '#37b34a'
-    });
 
-    supr(this, 'init', [opts]);
+exports = Class(ui.View, function(supr) {
+    this.init = function(opts) {
+        opts = merge(opts, {
+            x: 0,
+            y: 0,
+            width: 576,
+            height: 1024,
+            backgroundColor: '#37b34a'
+        });
 
-    this.build();
-};
+        supr(this, 'init', [opts]);
 
-this.build = function() {
-	this.on('app:start',bind(this,start_game_flow));
+        this.build();
+    };
 
-	ReadyGame();
-
-};
+    this.build = function() {
+        this.on('app:start', start_game_flow.bind(this));
+    };
+});
 
 function ReadyGame() {
-    // initialize the 2D Level Array
-    for (var i = 0; i < level.col; i++) {
-        level.tiles[i] = [];
-        for (var j = 0; j < level.rows; j++) {
-            //Define a tile type and shift type
-            level.tiles[i][j] = {
-                type: 0,
-                shift: 0
-            };
-        }
-    }
+    CoreGame.InitializeBoard();
+    CoreGame.CreateLevel();
 
-    CreateLevel();
-}
-
-function CreateLevel() {
-    var done = false;
-
-    // keep generating levels unitl it is correct
-    while (!done) {
-        for (var i = 0; i < level.col; i++) {
-            for (var j = 0; j < level.rows; j++) {
-                level.tiles[i][j].type = GetRandomTile();
-            }
-        }
-
-        CoreGame.ResolveClusters();
-        CoreGame.FindMoves();
-
-        if(moves.length > 0) {
-        	done = true;
-        }
-    }
+    //Find Initial Moves and Clusters
+    CoreGame.FindMoves();
+    CoreGame.FindClusters();
 }
 
 // Starts the game
-function start_game_flow() {}
+function start_game_flow() {
+	ReadyGame();
+	play_game(this);
+}
 
 // Game play
-function play_game() {}
+function play_game() {
+	if(CoreGame.moves.length === 0) {
+		end_game_flow.call(this);
+	}
+}
 
-function tick() {}
-
-function update_countdown() {}
+// function tick() {}
+// function update_countdown() {}
 
 // Game End
-function end_game_flow() {}
+function end_game_flow() {
+	//slight delay before allowing a tap reset
+	setTimeout(emit_endgame_event.bind(this), 2000);
+}
 
-function emit_endgame_event() {}
+function emit_endgame_event() {
+	this.once('InputSelect', function() {
+		this.emit('gamescreen:end');
+		reset_game.call(this);
+	});
+}
+
+function reset_game() {}
