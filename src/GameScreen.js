@@ -5,7 +5,7 @@ import ui.ImageView;
 import ui.TextView;
 
 import src.Match3Core as Core;
-import src.utils as Utils;
+import src.Utils as Utils;
 var Chance = require('chance');
 
 //Some constants
