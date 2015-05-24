@@ -6,12 +6,12 @@ import ui.TextView;
 
 import src.Match3Core as Core;
 import src.Utils as Utils;
-var Chance = require('chance');
+//var Chance = require('chance');
 
 //Some constants
 var CoreGame = new Core();
 var level = new Core();
-var chance = new Chance();
+//var chance = new Chance();
 /* The Game Screen code.
  * The child of the main application in 
  * the game.  Everything else is a child
