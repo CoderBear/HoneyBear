@@ -1,4 +1,5 @@
 import animate;
+import event.Emitter as Emitter;
 import device;
 import ui.View;
 import ui.ImageView;
@@ -36,6 +37,20 @@ exports = Class(ui.View, function(supr) {
     this.build = function() {
         this.on('app:start', start_game_flow.bind(this));
     };
+
+    // Main Menu Functions
+	this.SetMenu = function(menu) {
+		this._menu = menu;
+	};
+
+	this.GetMenu = function() {
+		return this._menu;
+	};
+
+	this.OnLaunchMainMenu = function(){
+		this.emit('MainMenu');
+	};
+
 });
 
 function ReadyGame() {

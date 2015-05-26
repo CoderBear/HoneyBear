@@ -20,7 +20,7 @@ var img_bee = new Image({
     img_jar = new Image({
         url: "resources/images/honeyjar.png"
     });
-var TileBee,TileBeehive,TileHoneycomb,TileJar;
+var TileBee, TileBeehive, TileHoneycomb, TileJar;
 
 exports = Class(ui.View, function(supr) {
     this.init = function(opts) {
@@ -31,33 +31,42 @@ exports = Class(ui.View, function(supr) {
 
         supr(this, 'init', [opts]);
 
-       TileBee = new ui.ImageView({
-       	superview: this,
-       	width:this.width,
-       	height: this.height,
-       	image: img_bee
-       });
-       TileBeehive = new ui.ImageView({
-       	superview: this,
-       	width:this.width,
-       	height: this.height,
-       	image: img_beehive
-       });
-       TileHoneycomb = new ui.ImageView({
-       	superview: this,
-       	width:this.width,
-       	height: this.height,
-       	image: img_honeycomb
-       });
-       TileJar = new ui.ImageView({
-       	superview: this,
-       	width:this.width,
-       	height: this.height,
-       	image: img_jar
-       });
+        TileBee = new ui.ImageView({
+            superview: this,
+            width: this.width,
+            height: this.height,
+            image: img_bee
+        });
+        TileBeehive = new ui.ImageView({
+            superview: this,
+            width: this.width,
+            height: this.height,
+            image: img_beehive
+        });
+        TileHoneycomb = new ui.ImageView({
+            superview: this,
+            width: this.width,
+            height: this.height,
+            image: img_honeycomb
+        });
+        TileJar = new ui.ImageView({
+            superview: this,
+            width: this.width,
+            height: this.height,
+            image: img_jar
+        });
     };
 
     this.build = function() {};
+
+    this.ReadyGame = function() {
+        InitializeBoard();
+        CreateLevel();
+
+        //Find Initial Moves and Clusters
+        FindMoves();
+        FindClusters();
+    };
 });
 
 // Our levels
@@ -76,8 +85,8 @@ var level = {
     }
 };
 
-function InitalizeBoard() {
-	// initialize the 2D Level Array
+function InitializeBoard() {
+    // initialize the 2D Level Array
     for (var i = 0; i < level.col; i++) {
         level.tiles[i] = [];
         for (var j = 0; j < level.rows; j++) {

@@ -1,41 +1,22 @@
 {
-    "appID": "30b2424b76fb451a85c4fdd732cbefd9",
-    "dependencies": {
-        "devkit-core": "https://github.com/gameclosure/devkit-core#v2.4.0"
+  "android": {
+    "icons": {
+      "36": "resources/icons/android36.png",
+      "48": "resources/icons/android48.png",
+      "72": "resources/icons/android72.png",
+      "96": "resources/icons/android96.png"
     },
-    "shortName": "HoneyBear",
-    "studio": {
-        "domain": "salsabearstudios.com",
-        "name": "Salsa Bear Studios",
-        "stagingDomain": "staging.salsabearstudios.com"
-    },
-    "supportedOrientations": [
-        "portrait"
-    ],
-    "title": "HoneyBear",
-    "icon": "resources/icons/I-like-honey-icon.png",
-    "splash": {
-        "autoHide": false,
-        "portrait480": "resources/splash/portrait480.png",
-        "portrait960": "resources/splash/portrait960.png",
-        "portrait1024": "resources/splash/portrait1024.png",
-        "portrait1136": "resources/splash/portrait1136.png",
-        "portrait2048": "resources/splash/portrait2048.png",
-        "landscape768": "resources/splash/landscape768.png",
-        "landscape1536": "resources/splash/landscape1536.png"
-    },
-    "android": {
-        "versionCode": 1,
-        "icons": {
-            "36": "resources/icons/android36.png",
-            "48": "resources/icons/android48.png",
-            "72": "resources/icons/android72.png",
-            "96": "resources/icons/android96.png"
-        }
-    },
-    "ios": {
+    "versionCode": 1
+  },
+  "appID": "30b2424b76fb451a85c4fdd732cbefd9",
+  "dependencies": {
+    "devkit-core": "https://github.com/gameclosure/devkit-core#v2.4.0",
+    "devkit-menus": "https://github.com/gameclosure/menus.git#v2.0.0"
+  },
+  "icon": "resources/icons/I-like-honey-icon.png",
+  "ios": {
     "appleID": "123456789",
-    "bundleID": "Honeybear",
+    "bundleID": "HoneyBear",
     "icons": {
       "114": "resources/icons/ios114.png",
       "144": "resources/icons/ios144.png",
@@ -44,5 +25,25 @@
       "renderGloss": true
     },
     "version": "1.0.0"
-  }
+  },
+  "shortName": "HoneyBear",
+  "splash": {
+    "autoHide": false,
+    "landscape1536": "resources/splash/landscape1536.png",
+    "landscape768": "resources/splash/landscape768.png",
+    "portrait1024": "resources/splash/portrait1024.png",
+    "portrait1136": "resources/splash/portrait1136.png",
+    "portrait2048": "resources/splash/portrait2048.png",
+    "portrait480": "resources/splash/portrait480.png",
+    "portrait960": "resources/splash/portrait960.png"
+  },
+  "studio": {
+    "domain": "salsabearstudios.com",
+    "name": "Salsa Bear Studios",
+    "stagingDomain": "staging.salsabearstudios.com"
+  },
+  "supportedOrientations": [
+    "portrait"
+  ],
+  "title": "HoneyBear"
 }
