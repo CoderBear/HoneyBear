@@ -53,6 +53,7 @@ exports = Class(ui.View, function(supr) {
 
 });
 
+/*
 function ReadyGame() {
     CoreGame.InitializeBoard();
     CoreGame.CreateLevel();
@@ -61,10 +62,11 @@ function ReadyGame() {
     CoreGame.FindMoves();
     CoreGame.FindClusters();
 }
+*/
 
 // Starts the game
 function start_game_flow() {
-	ReadyGame();
+	CoreGame.ReadyGame();
 	play_game(this);
 }
 
