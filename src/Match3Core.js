@@ -67,6 +67,8 @@ exports = Class(ui.View, function(supr) {
         FindMoves();
         FindClusters();
     };
+    
+    this.moves = [];
 });
 
 // Our levels
@@ -113,7 +115,7 @@ function CreateLevel() {
         ResolveClusters();
         FindMoves();
 
-        if (moves.length > 0) {
+        if (this.moves.length > 0) {
             done = true;
         }
     }
@@ -245,7 +247,7 @@ function FindVerticalClusters() {
 }
 
 // Available moves
-var moves = [];
+//var moves = [];
 
 function Swap(x1, y1, x2, y2) {
     var typeswap = level.tiles[x1][y1].type;
@@ -255,7 +257,7 @@ function Swap(x1, y1, x2, y2) {
 
 function FindMoves() {
     // Reset moves
-    moves = [];
+    this.moves = [];
 
     CheckHorizontalSwaps();
     CheckVerticalSwaps();
@@ -276,7 +278,7 @@ function CheckHorizontalSwaps() {
             // Check if the swap made a cluster
             if (clusters.length > 0) {
                 // Found a move
-                moves.push({
+                this.moves.push({
                     column1: i,
                     row1: j,
                     column2: i + 1,
@@ -299,7 +301,7 @@ function CheckVerticalSwaps() {
             // Check if the swap made a cluster
             if (clusters.length > 0) {
                 // Found a move
-                moves.push({
+                this.moves.push({
                     column1: i,
                     row1: j,
                     column2: i,
