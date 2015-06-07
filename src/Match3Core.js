@@ -125,15 +125,16 @@ function GetRandomTile() {
         max: 3
     });
 
+        // will load tile image into level var.
     switch (result) {
         case 0: // 1st tile type
-            return;
+            return result;
         case 1: // 2nd tile type
-            return;
+            return result;
         case 2: //3rd tile type
-            return;
+            return result;
         case 3: //4th tile type
-            return;
+            return result;
     }
 }
 
