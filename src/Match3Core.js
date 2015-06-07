@@ -170,7 +170,7 @@ function FindHorizontalClusters() {
         for (var i = 0; i < level.col; i++) {
             var checkcluster = false;
 
-            if (i == level.columns - 1) {
+            if (i == level.col - 1) {
                 // Last tile
                 checkcluster = true;
             } else {
